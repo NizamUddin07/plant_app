@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:plant_app/Utils/colors.dart';
+import 'package:plant_app/screens/product.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -10,12 +11,7 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          Row(
-            children: [
-              sideBar(),
-              Container(width: size.width * 0.8),
-            ],
-          ),
+          Row(children: [sideBar(), bodyParts(size)]),
           Positioned(
             top: 90,
             left: 30,
@@ -24,15 +20,30 @@ class HomeScreen extends StatelessWidget {
               style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
             ),
           ),
-          Positioned(
-            top: 40,
-            right: 10,
-            child: Icon(Icons.search, size: 20,)
-          ),
+          Positioned(top: 40, right: 10, child: Icon(Icons.search, size: 20)),
         ],
       ),
     );
   }
+
+  Container bodyParts(Size size) => Container(width: size.width * 0.8,
+  color: Colors.white,
+    child: SingleChildScrollView(
+      child: Column(
+        children: [
+          SizedBox(
+            height: 130,
+          ),
+          Hero(
+              tag: "flower1",
+          child: Product(image: "images/flower1.png", name: "House shape Close", price: "45")),
+          Hero (
+              tag: "flower2",
+              child: Product(image: "images/flower2.png", name: "Glass Water", price: "60")),
+        ],
+      ),
+    ),
+  );
 
   Expanded sideBar() {
     return Expanded(
