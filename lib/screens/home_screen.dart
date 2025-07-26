@@ -10,11 +10,25 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          Row(children: [sideBar(),
-          Container(
-            width: size.width*0.8,
-          )
-          ]),
+          Row(
+            children: [
+              sideBar(),
+              Container(width: size.width * 0.8),
+            ],
+          ),
+          Positioned(
+            top: 90,
+            left: 30,
+            child: Text(
+              "Plants",
+              style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+            ),
+          ),
+          Positioned(
+            top: 40,
+            right: 10,
+            child: Icon(Icons.search, size: 20,)
+          ),
         ],
       ),
     );
@@ -34,7 +48,7 @@ class HomeScreen extends StatelessWidget {
               padding: const EdgeInsets.only(left: 16),
               child: Text('Green', style: TextStyle(fontSize: 15)),
             ),
-            SizedBox(height: 30),
+            SizedBox(height: 40),
             Padding(
               padding: const EdgeInsets.only(right: 14),
               child: RotatedBox(
@@ -85,7 +99,7 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: EdgeInsets.only(top: 110, right: 16),
+              padding: EdgeInsets.only(top: 100, right: 16),
               child: Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.only(
