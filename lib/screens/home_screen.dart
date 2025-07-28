@@ -50,12 +50,20 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
           ),
-          Hero(
-            tag: "flower2",
-            child: Product(
-              image: "images/flower2.png",
-              name: "Glass Water",
-              price: "60",
+          GestureDetector(
+            onDoubleTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => DetailsScreen()),
+              );
+            },
+            child: Hero(
+              tag: "flower2",
+              child: Product(
+                image: "images/flower2.png",
+                name: "Glass Water",
+                price: "60",
+              ),
             ),
           ),
         ],
